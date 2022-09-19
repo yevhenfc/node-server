@@ -39,9 +39,13 @@ class Users{
         this.count = users.length;
     }
     createUser(user){}
+    
     getUserById(id){}
-    getllUsers(){}
+    
+    getllUsers(){return [...this.users]}
+    
     updateUser(id, newInfo){}
+    
     deleteUser(id){}
 }
 const usersInstance = new Users(usersDB);
@@ -53,6 +57,7 @@ app.get("/users", (req, res) => {
     const data = usersInstance.getllUsers();
     res.status(200).send(data);
 });
+
 app.get("/users/1", (req, res) => {
 
 });
