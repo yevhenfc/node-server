@@ -6,6 +6,3 @@ const app = require('./app.js');
 const server = http.createServer(app);
 
 server.listen (PORT, HOST, () => console.log(`server is working on ${PORT} port for ${HOST}`));
-
-
-
