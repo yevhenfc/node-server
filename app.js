@@ -38,15 +38,35 @@ class Users{
         this.users = [...users];
         this.count = users.length;
     }
-    createUser(user){}
+    createUser(user){
+        this.count++;
+        this.users.push({...user, id: this.count});
+        return this.users[this.count - 1];
+    }
     
-    getUserById(id){}
+    getUserById(id){
+        const foundIndex = this.users.findIndex((u) => u.id === Number(id));
+        return this.users[foundIndex];
+    }
     
     getllUsers(){return [...this.users]}
     
-    updateUser(id, newInfo){}
+    updateUser(id, newInfo){
+        const foundIndex = this.users.findIndex((u) = u.id === Number(id));
+        this.users[foundIndex] = {
+            ...this.users[foundIndex],
+            ...newInfo,
+        };
+        return this.users[foundIndex]
+
+    }
     
-    deleteUser(id){}
+    deleteUser(id){
+        const foundIndex = this.users.findIndex((u) = u.id === Number(id));
+        this.users.splice(foundIndex, 1);
+        this.count--;
+
+    }
 }
 const usersInstance = new Users(usersDB);
 
@@ -58,17 +78,29 @@ app.get("/users", (req, res) => {
     res.status(200).send(data);
 });
 
-app.get("/users/1", (req, res) => {
-
+app.get("/users/:id", (req, res) => {
+    const {id} = req.params;
+    const foundUser = usersInstance.getUserById(id);
+    res.status(200).send(foundUser);
 });
+
 app.post("/users", (req, res) => {
-
+    const {body} = req;
+    const newUser = usersInstance.createUser(body);
+    res.status(201).send(foundUser);
 });
-app.patch("/users/1", (req, res) => {
 
+app.patch("/users/:id", (req, res) => {
+    const {id} = req.params;
+    const {body} = req;
+    const foundUser = usersInstance.updateUser(id, body);
+    res.status(200).send(foundUser);
 });
-app.delete("/users/1", (req, res) => {
 
+app.delete("/users/:id", (req, res) => {
+    const {id} = req.params;
+    const foundUser = usersInstance.deleteUser(id);
+    res.status(200).send(foundUser);
 });
 
 
