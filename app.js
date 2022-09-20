@@ -52,13 +52,12 @@ class Users{
     getllUsers(){return [...this.users]}
     
     updateUser(id, newInfo){
-        const foundIndex = this.users.findIndex((u) = u.id === Number(id));
+        const foundIndex = this.users.findIndex(u = u.id === Number(id));
         this.users[foundIndex] = {
             ...this.users[foundIndex],
             ...newInfo,
         };
-        return this.users[foundIndex]
-
+        return this.users[foundIndex];
     }
     
     deleteUser(id){
@@ -87,7 +86,7 @@ app.get("/users/:id", (req, res) => {
 app.post("/users", (req, res) => {
     const {body} = req;
     const newUser = usersInstance.createUser(body);
-    res.status(201).send(foundUser);
+    res.status(201).send(newUser);
 });
 
 app.patch("/users/:id", (req, res) => {

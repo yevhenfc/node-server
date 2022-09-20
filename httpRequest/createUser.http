@@ -1,1 +1,9 @@
 POST http://localhost:5000/users HTTP/1.1
+Content-Type: application/json;
+
+{
+    "name": "Name5",
+    "surname": "Surname5",
+    "isMale": "true",
+    "age": "5"
+}
