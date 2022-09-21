@@ -20,6 +20,7 @@
   "homepage": "https://github.com/yevhenfc/node-server#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "yup": "^0.32.11"
   }
 }
