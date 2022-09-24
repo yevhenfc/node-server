@@ -10,7 +10,7 @@ app.use(express.json());
 //errors
 app.use(errorHandlers.internalServerEH,errorHandlers.validationEH)
 
-app.use('/api, router');
+app.use('/api', router);
 
 
 module.exports = app;
