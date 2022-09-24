@@ -48,7 +48,7 @@ class Users{
     }
     updateUser(id, newInfo){
         const foundIndex = this.users.findIndex((u) => u.id === Number(id));
-        return foundIndex === -1 ? null: tthis.users[foundIndex] = {
+        return foundIndex === -1 ? null: this.users[foundIndex] = {
             ...this.users[foundIndex],
             ...newInfo,
         };

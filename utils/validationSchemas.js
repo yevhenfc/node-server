@@ -3,7 +3,7 @@ const yup = require("yup");
 module.exports.userCreateSchema = yup.object({
     name: yup.string().trim().min(2).max(64).required(),
     surname: yup.string().trim().min(2).max(64).required(),
-    isMail: yup.boolean.required(),
+    isMail: yup.boolean().required(),
     age: yup.number().positive().integer().required()
 });
 
